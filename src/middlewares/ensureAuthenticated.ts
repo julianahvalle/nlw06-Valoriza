@@ -20,9 +20,10 @@ export function ensureAuthentication(request: Request, response: Response, next:
 
   request.user_id = sub;
 
-}catch(err){
-  return response.status(401).end(); 
-}
   return next();
+
+  }catch(err){
+    return response.status(401).end(); 
+  }  
 }
 
